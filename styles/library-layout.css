@@ -1,0 +1,367 @@
+body{
+  font-family: arial, sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(../images/desktop-wallpaper-red-assassin-s-creed-logo-game.jpg);
+  background-attachment:fixed ;
+  margin: 0;
+
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+
+}
+
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.logo {
+  margin-top: 20px;
+  margin-bottom: -2em;
+  height: 14em;
+}
+
+
+p{
+  margin: 0px;
+}
+
+
+
+.ac-bigone{
+  width: 1300px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+
+.library{
+  color: white;
+  letter-spacing: 2.5px;
+  margin-right: 1100px;
+  font-size: 35px;
+}
+
+
+.ac-section{
+  height: 440px;
+  width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ac-div{
+  width: 250px;
+  height: 320px;
+  position: relative;
+  transition: height 0.5s;  
+}
+
+
+
+
+.ac-img{
+  width: 250px;
+  height: 320px;
+  position: absolute;
+  /* so before using "overflow:hidden;"  the image was overflowing by height to the bottom across
+  the given dimension/height of the container/div. so remember if you see any element overflowing , 
+  use the property " overflow: hidden; " to prevent the overflow */
+  overflow: hidden; 
+  z-index: 5;
+  cursor: pointer;
+}
+
+.ac-div:hover{
+  height: 100%;
+}
+
+
+.ac-div:hover .in-shadow,
+.ac-div:hover .in-shadow-2 {
+  opacity: 1;  
+} 
+
+
+.in-shadow ,.in-shadow-2{
+  width: 250px;
+  height: 320px;
+  z-index: 6;
+  transition: opacity 0.5s;
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  box-shadow: inset 35px 0px 40px rgba(0, 0, 0, 0.7);
+}
+
+.in-shadow-2{
+  box-shadow: inset -35px 0px 40px rgba(0, 0, 0, 0.7);
+}
+
+
+.ac1, .ac2, .ac3{
+  object-fit: cover;
+  height: 350px;
+  width: 100%;
+
+  /* transform: scale(1.5);     learn about this property 
+  transform-origin: 50% 50%; */
+}
+
+
+
+
+
+.game-console{
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  color: white;
+  background: rgb(79,96,83);
+  background: linear-gradient(300deg, rgba(79,96,83,1) -150%, rgba(0,0,0,1) 100%);
+  height: 120px;
+  z-index: 2;
+  
+}
+
+
+/* + , it's Next-sibling combinator which seperates two selectors and matches 
+the second element only if it immediately follows the first element, so it'll target the second element
+and both should be children of the samne parent.
+
+so in here, by using position absolute for both "game-console" and "ac-img" 
+and we put "game-console" behind "ac-img", the problem in here is that we can't target like this :- .ac-img:hover .game-console / .ac-img:hover & .game-console:hover 
+that means we cant target both absolutely positioned elements for hover effects at once. coz hovering happens when we point the mouse pointer 
+to the element, and the game-console is covered behind ac-img, so that hovering the mouse pointer is only can move around ac-img and it cant go through 
+the game-console coz it's in behind. */
+
+
+/* .ac-img:hover + .game-console{
+  bottom: 0;
+} */
+
+
+.game-console p {
+  font-size: 11px;
+  margin-top: 5px;
+  margin-left: 8px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+
+}
+
+.version-no {
+  font-size: 13px;
+}
+
+.button-div{
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin-top: 25px;
+
+}
+
+.button-div button{
+  
+  letter-spacing: 1px;
+  font-size: 15px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  background: rgba(0, 255, 51, 0);
+  transition: box-shadow 1.5s;
+}
+
+.play-button svg,
+.play-button svg rect {
+  width: 91.25px;
+  height: 49.6px;
+  position: absolute;
+  left: 7px;
+  bottom: 7px;
+  fill: transparent;
+}
+
+.delete-button svg,
+.delete-button svg rect {
+  width: 114.5px;
+  height: 49.6px;
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  fill: transparent;
+}
+
+.play-button svg rect,
+.delete-button svg rect {
+  stroke: rgb(0, 255, 72);
+  stroke-width: 4px;
+  transition: 1.5s;
+  stroke-dasharray: 400,500;
+  stroke-dashoffset: 0;
+  opacity: 0;
+}
+
+.delete-button svg rect{
+  stroke: rgb(255, 45, 45);
+}
+
+.play-button:hover svg rect
+{
+  stroke-dasharray: 70,300;
+  stroke-dashoffset: 227;
+  opacity: 1;
+}
+
+.delete-button:hover svg rect {
+  stroke-dasharray: 85,300;
+  stroke-dashoffset: 214.5;
+  opacity: 1;
+}
+
+
+.play-button{
+  margin-left: 7px;
+  box-shadow: 0px 0px 5px rgb(0, 255, 72);
+  padding: 15px 14.4985px;
+}
+
+.delete-button{
+  margin-right: 7px;
+  box-shadow: 0px 0px 6px rgb(255, 45, 45);
+  padding: 15px 15.7925px;
+}
+
+
+.play-button:hover,
+.delete-button:hover {
+  box-shadow: none;
+}
+
+
+.play-button:active svg rect
+{
+  stroke-dasharray: 50,330;
+  transition: 0.15s;
+}
+
+.delete-button:active svg rect{
+  stroke-dasharray: 65,330;
+  transition: 0.15s;
+}
+
+
+
+.character-details-div{
+  position: absolute;
+  bottom: 90px;
+  right: 5px;
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  cursor: pointer;
+  z-index: 4;
+}
+
+.character-icon {
+  object-fit: contain;
+  height: 17px;
+  vertical-align: bottom;
+}
+
+.out-shadow{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.621);
+  z-index: 7;
+  opacity: 0;
+  /* you can use "backdrop-filter" to get the blur property to give an element a blur effect. */
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.character-details{
+  position: absolute;
+  height: 300px;
+  width: 250px;
+  right: -100px;
+  background-color: rgb(60, 60, 60);
+  border-radius: 10px;
+  opacity: 0;
+  z-index: 8;
+  transition: opacity 0.4s ;
+  pointer-events: none;
+}
+
+
+
+
+.img-2{
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  object-position: right;
+  overflow: hidden;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.character-details p {
+  color: white;
+  margin-top: 10px;
+  font-family: arial, sans-serif;
+  letter-spacing: 1px;
+  word-spacing: 1.5px;
+  text-indent: 8px;
+}
+
+
+.character-details-div:hover {
+  opacity: 0.9;
+
+}
+
+
+.character-details-div:hover + .character-details
+{
+  opacity: 1;
+}
+
+
+.character-details-div:hover + .character-details + .out-shadow{
+  opacity: 1;
+}
+
+
+.play-icon{
+  color: rgb(0, 255, 72);
+}
+
+.delete-icon {
+  color: rgb(255, 45, 45);
+}
